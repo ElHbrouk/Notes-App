@@ -16,11 +16,31 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ChangeThemeCubit(),
-      child: BlocBuilder<ChangeThemeCubit, ThemeData>(
+      child: BlocBuilder<ChangeThemeCubit, Brightness>(
         builder: (context, state) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            theme: state,
+            theme: ThemeData(
+                brightness: state,
+                listTileTheme: ListTileThemeData(
+                    iconColor: Colors.black,
+                    titleTextStyle: const TextStyle(
+                      fontSize: 28,
+                      color: Colors.black,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.bold,
+                    ),
+                    subtitleTextStyle: TextStyle(
+                      fontSize: 22,
+                      color: Colors.black.withOpacity(0.6),
+                    )),
+                textTheme: Theme.of(context).textTheme.apply(
+                      // displayColor: Colors.white,
+                      fontSizeDelta: 8,
+                      fontFamily: 'Poppins',
+                      decorationColor: Colors.black,
+                      bodyColor: Colors.black,
+                    )),
             home: HomeView(
               themeData: state,
             ),

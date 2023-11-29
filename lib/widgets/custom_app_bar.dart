@@ -5,26 +5,26 @@ import 'package:notes_app/widgets/custom_search_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key, required this.themeData});
-  final ThemeData themeData;
+  final Brightness themeData;
   @override
   Widget build(BuildContext context) {
     return Row(
-
       children: [
-        const Text(
+        Text(
           'Notes',
           style: TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,
+            color: themeData == Brightness.light ? Colors.black : Colors.white,
           ),
         ),
-        Spacer(),
+        const Spacer(),
         IconButton(
           onPressed: () {
             context.read<ChangeThemeCubit>().toggleTheme();
           },
           icon: Icon(
-            themeData == ThemeData.light()
+            themeData == Brightness.light
                 ? Icons.light_mode_outlined
                 : Icons.dark_mode_outlined,
           ),

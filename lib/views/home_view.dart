@@ -6,7 +6,7 @@ import 'package:notes_app/widgets/notes_view_body.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key, required this.themeData});
-  final ThemeData themeData;
+  final Brightness themeData;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ChangeThemeCubit extends Cubit<ThemeData> {
+class ChangeThemeCubit extends Cubit<Brightness> {
   ChangeThemeCubit()
       : super(
-          ThemeData.light(),
+          Brightness.light,
         );
 
   toggleTheme() {
-    if (state == ThemeData.light()) {
-      emit(ThemeData.dark());
+    if (state == Brightness.light) {
+      emit(Brightness.dark,);
     } else {
-      emit(ThemeData.light());
+      emit(Brightness.light,);
     }
   }
 }
