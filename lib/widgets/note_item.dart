@@ -11,7 +11,7 @@ class NoteItem extends StatelessWidget {
         vertical: 20,
       ),
       margin: const EdgeInsetsDirectional.only(
-        top: 10.0,
+        top: 20.0,
       ),
       width: double.infinity,
       decoration: BoxDecoration(
