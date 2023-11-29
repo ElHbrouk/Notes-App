@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/change_theme/change_theme_cubit.dart';
+import 'package:notes_app/widgets/custom_app_bar.dart';
+import 'package:notes_app/widgets/notes_view_body.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key, required this.themeData});
@@ -8,22 +10,14 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [
-        IconButton(
-          onPressed: () {
-            context.read<ChangeThemeCubit>().toggleTheme();
-          },
-          icon: Icon(
-            themeData == ThemeData.light()
-                ? Icons.light_mode_outlined
-                : Icons.dark_mode_outlined,
-          ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            NotesViewBody(
+              themeData: themeData,
+            ),
+          ],
         ),
-      ]),
-      body: const Column(
-        children: [
-          
-        ],
       ),
     );
   }
