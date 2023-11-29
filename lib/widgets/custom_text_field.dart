@@ -2,34 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField(
-      {super.key, this.maxLines = 1, required this.hintText});
+  const CustomTextField({
+    super.key,
+    this.maxLines = 1,
+    required this.hintText, required this.themeData,
+  });
   final int maxLines;
   final String hintText;
+  final Brightness themeData;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      
       maxLines: maxLines,
-      cursorColor: kPrimaryColor,
+      cursorColor: themeData == Brightness.light? Colors.black:kPrimaryColor,
       decoration: InputDecoration(
-        hintStyle: const TextStyle(
-          color: kPrimaryColor,
+        
+        hintStyle:  TextStyle(
+          color: themeData == Brightness.light? Colors.black:kPrimaryColor,
         ),
         hintText: hintText,
-        
-       
         border: buildBorder(),
         enabledBorder: buildBorder(),
-        focusedBorder: buildBorder(kPrimaryColor),
+        focusedBorder: buildBorder(),
       ),
     );
   }
 
-  OutlineInputBorder buildBorder([color]) {
+  OutlineInputBorder buildBorder() {
     return OutlineInputBorder(
-      
-      borderSide:  BorderSide(
-        color: color ??Colors.white,
+      borderSide: BorderSide(
+        color: themeData == Brightness.light? Colors.black:kPrimaryColor,
       ),
       borderRadius: BorderRadius.circular(
         32,

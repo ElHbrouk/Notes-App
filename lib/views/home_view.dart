@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
               // isScrollControlled: true,
               context: context,
               builder: (context) {
-                return const AddNoteButtomSheet();
+                return  AddNoteButtomSheet(themeData: themeData,);
               });
         },
         child: const Icon(
