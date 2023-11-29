@@ -11,7 +11,7 @@ class NoteItem extends StatelessWidget {
         vertical: 20,
       ),
       margin: const EdgeInsetsDirectional.only(
-        top: 20.0,
+        top: 15.0,
       ),
       width: double.infinity,
       decoration: BoxDecoration(
@@ -26,7 +26,7 @@ class NoteItem extends StatelessWidget {
               'Flutter Tips',
             ),
             subtitle: const Padding(
-              padding: EdgeInsetsDirectional.only(top: 16.0,bottom: 22.0),
+              padding: EdgeInsetsDirectional.only(top: 16.0, bottom: 22.0),
               child: Text(
                 'build your career with thrwat samy',
               ),
