@@ -23,7 +23,7 @@ class AddNoteButtomSheet extends StatelessWidget {
               hintText: 'title',
               themeData: themeData,
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             CustomTextField(
@@ -31,11 +31,11 @@ class AddNoteButtomSheet extends StatelessWidget {
               hintText: 'content',
               themeData: themeData,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            CustomButton(),
-            SizedBox(
+            const CustomButton(),
+            const SizedBox(
               height: 10,
             ),
           ],
