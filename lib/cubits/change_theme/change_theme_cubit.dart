@@ -9,9 +9,15 @@ class ChangeThemeCubit extends Cubit<Brightness> {
 
   toggleTheme() {
     if (state == Brightness.light) {
-      emit(Brightness.dark,);
+      emit(
+        Brightness.dark,
+      );
+ 
     } else {
-      emit(Brightness.light,);
+      emit(
+        Brightness.light,
+      );
+      
     }
   }
 }

@@ -15,18 +15,8 @@ class CustomAppBar extends StatelessWidget {
           style: TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,
-            color: themeData == Brightness.light ? Colors.black : Colors.white,
-          ),
-        ),
-        const Spacer(),
-        IconButton(
-          onPressed: () {
-            context.read<ChangeThemeCubit>().toggleTheme();
-          },
-          icon: Icon(
-            themeData == Brightness.light
-                ? Icons.light_mode_outlined
-                : Icons.dark_mode_outlined,
+            color:
+                themeData == Brightness.light ? Colors.black : Colors.white,
           ),
         ),
         const CustomSearchIcon(),

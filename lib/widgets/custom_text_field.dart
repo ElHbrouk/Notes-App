@@ -13,7 +13,9 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      
+      style: TextStyle(
+        color: themeData == Brightness.dark?Colors.white:Colors.black,  
+      ),
       maxLines: maxLines,
       cursorColor: themeData == Brightness.light? Colors.black:kPrimaryColor,
       decoration: InputDecoration(
