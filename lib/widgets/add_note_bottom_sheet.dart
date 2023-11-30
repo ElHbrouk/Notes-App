@@ -17,29 +17,71 @@ class AddNoteButtomSheet extends StatelessWidget {
         start: 16,
       ),
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            CustomTextField(
-              hintText: 'title',
-              themeData: themeData,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            CustomTextField(
-              maxLines: 5,
-              hintText: 'content',
-              themeData: themeData,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-             const CustomButton(),
-            const SizedBox(
-              height: 10,
-            ),
-          ],
-        ),
+        child: AddNoteForm(themeData: themeData),
+      ),
+    );
+  }
+}
+
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({
+    super.key,
+    required this.themeData,
+  });
+
+  final Brightness themeData;
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+}
+
+class _AddNoteFormState extends State<AddNoteForm> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? title, content;
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      child: Column(
+        children: [
+          CustomTextField(
+            onSaved: (value) {
+              title = value;
+            },
+            hintText: 'title',
+            themeData: widget.themeData,
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          CustomTextField(
+            onSaved: (value) {
+              content = value;
+            },
+            maxLines: 5,
+            hintText: 'content',
+            themeData: widget.themeData,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          CustomButton(
+            onTap: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {
+                  
+                });
+              }
+            },
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+        ],
       ),
     );
   }
