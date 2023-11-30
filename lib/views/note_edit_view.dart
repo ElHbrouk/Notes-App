@@ -14,7 +14,7 @@ class EditNoteView extends StatelessWidget {
           child: Column(
             children: [
               CustomAppBar(
-                themeData: themeData,
+                themeData: themeData, icon: Icons.check, title: 'Edit Note',
               ),
               const SizedBox(
                 height: 50,

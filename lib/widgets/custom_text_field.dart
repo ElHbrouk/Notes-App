@@ -37,7 +37,7 @@ class CustomTextField extends StatelessWidget {
         color: themeData == Brightness.light? Colors.black:kPrimaryColor,
       ),
       borderRadius: BorderRadius.circular(
-        32,
+        16,
       ),
     );
   }

@@ -18,14 +18,11 @@ class NotesViewBody extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+          Stack(
+            alignment: Alignment.topRight,
+            // mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              CustomAppBar(
-                themeData: themeData,
-              ),
-             
-              IconButton(
+               IconButton(
           onPressed: () {
             context.read<ChangeThemeCubit>().toggleTheme();
           },
@@ -35,6 +32,12 @@ class NotesViewBody extends StatelessWidget {
                 : Icons.dark_mode_outlined,
           ),
         ),
+        
+              CustomAppBar(
+                themeData: themeData, icon: Icons.search, title: 'Notes',
+              ),
+             
+             
             ],
           ),
            Expanded(child: NoteListView(themeDate: themeData,)),
