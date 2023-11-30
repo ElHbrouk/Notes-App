@@ -16,7 +16,7 @@ class CustomSearchIcon extends StatelessWidget {
           18,
         ),
       ),
-      child:  Icon(
+      child: Icon(
        icon,
         size: 28,
       ),
