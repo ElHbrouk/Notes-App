@@ -12,9 +12,10 @@ class AddNoteButtomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsetsDirectional.only(
-        top: 50,
+        top: 20,
         end: 16,
         start: 16,
+        bottom: 15,
       ),
       child: SingleChildScrollView(
         child: AddNoteForm(themeData: themeData),
@@ -64,7 +65,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             themeData: widget.themeData,
           ),
           const SizedBox(
-            height: 20,
+            height: 16,
           ),
           CustomButton(
             onTap: () {
@@ -78,9 +79,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
               }
             },
           ),
-          const SizedBox(
-            height: 10,
-          ),
+        
         ],
       ),
     );
