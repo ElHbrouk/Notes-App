@@ -3,9 +3,11 @@ import 'package:notes_app/constants.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
-    super.key, this.onTap,
+    super.key,
+    this.onTap,  this.isLoading = false,
   });
   final void Function()? onTap;
+  final bool isLoading;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,8 +21,10 @@ class CustomButton extends StatelessWidget {
             32.0,
           ),
         ),
-        child: const Center(
-          child: Text(
+        child:  Center(
+          child: isLoading? const CircularProgressIndicator(
+            color: Colors.black,
+          ):const Text(
             'Add',
             style: TextStyle(
               fontSize: 28,
