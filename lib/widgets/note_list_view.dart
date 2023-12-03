@@ -9,15 +9,16 @@ class NoteListView extends StatelessWidget {
   final Brightness themeDate;
   @override
   Widget build(BuildContext context) {
-    List<NoteModel> notes  = BlocProvider.of<NotesCubit>(context).notes??[];
+    List<NoteModel> notes = BlocProvider.of<NotesCubit>(context).notes ?? [];
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
         return ListView.builder(
           physics: const BouncingScrollPhysics(),
-          itemCount:  notes.length,
+          itemCount: notes.length,
           itemBuilder: (context, index) {
             return NoteItem(
-              themeDate: themeDate, noteModel: notes[index],
+              themeDate: themeDate,
+              notes: notes[index],
             );
           },
         );
