@@ -8,11 +8,12 @@ class CustomAppBar extends StatelessWidget {
       {super.key,
       required this.themeData,
       required this.icon,
-      required this.title, required this.themeButton});
+      required this.title, required this.themeButton, this.onTap});
   final Brightness themeData;
   final IconData icon;
   final String title;
   final bool themeButton;
+   final Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -38,6 +39,7 @@ class CustomAppBar extends StatelessWidget {
           ),
         ):const SizedBox(),
         CustomSearchIcon(
+          onTap: onTap,
           icon: icon,
         ),
       ],

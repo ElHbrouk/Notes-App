@@ -9,6 +9,7 @@ import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/simple_bloc_observer.dart';
 import 'package:notes_app/theme/app_theme.dart';
 import 'package:notes_app/views/home_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   Bloc.observer = SimpleBlocObserver();
