@@ -51,9 +51,12 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(
             height: 16,
           ),
-          const SizedBox(
+           SizedBox(
             height: 76,
-            child: ColorsListView()),
+            child: ColorsListView(
+              themeData: widget.themeData,
+            ),
+          ),
           const SizedBox(
             height: 16,
           ),
@@ -87,6 +90,3 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
-
-
-
