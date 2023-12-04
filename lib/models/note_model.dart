@@ -14,3 +14,5 @@ class NoteModel extends HiveObject{
    NoteModel( 
       {required this.color,required this.date, required this.title, required this.content});
 }
+
+
