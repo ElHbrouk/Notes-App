@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
+import 'package:notes_app/widgets/color_item_list_view.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
+import 'package:notes_app/widgets/edit_note_colors_list.dart';
 
 class EditNoteViewBody extends StatefulWidget {
   const EditNoteViewBody({
@@ -21,6 +23,7 @@ class EditNoteViewBody extends StatefulWidget {
 
 class _EditNoteViewBodyState extends State<EditNoteViewBody> {
   String? title, content;
+  int? color;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -32,6 +35,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               onTap: () {
                 widget.noteModel.title = title ?? widget.noteModel.title;
                 widget.noteModel.content = content ?? widget.noteModel.content;
+                // widget.noteModel.color = color ?? widget.noteModel.color;
                 widget.noteModel.save();
                 BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                 Navigator.pop(context);
@@ -56,7 +60,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               height: 20,
             ),
             CustomTextField(
-                            controller: TextEditingController(text: widget.noteModel.content),
+              controller: TextEditingController(text: widget.noteModel.content),
 
               onChanged: (value) {
                 content = value;
@@ -64,7 +68,14 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               maxLines: 5,
               // hintText: widget.noteModel.content,
               themeData: widget.themeData,
-            )
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            EditNotesColorsList(
+              themeData: widget.themeData,
+              noteModel: widget.noteModel,
+            ),
           ],
         ),
       ),

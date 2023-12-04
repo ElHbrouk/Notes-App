@@ -7,6 +7,7 @@ import 'package:notes_app/widgets/color_item.dart';
 import 'package:notes_app/widgets/color_item_list_view.dart';
 import 'package:notes_app/widgets/custom_button.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
+import 'package:notes_app/widgets/edit_note_colors_list.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({
@@ -34,7 +35,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             onSaved: (value) {
               title = value;
             },
-            hintText: 'title',
+            hintText: 'Title',
             themeData: widget.themeData,
           ),
           const SizedBox(
@@ -45,18 +46,15 @@ class _AddNoteFormState extends State<AddNoteForm> {
               content = value;
             },
             maxLines: 5,
-            hintText: 'content',
+            hintText: 'Content',
             themeData: widget.themeData,
           ),
           const SizedBox(
             height: 16,
           ),
-           SizedBox(
-            height: 76,
-            child: ColorsListView(
-              themeData: widget.themeData,
-            ),
-          ),
+           ColorsListView(
+             themeData: widget.themeData,
+           ),
           const SizedBox(
             height: 16,
           ),
